@@ -1,24 +1,43 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-</head>
-<body bgcolor="#ffffff"  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<style>
+#rota1{
+	width: 300px;
+	height: 300px;
+}
 
-<div align="center">
+</style>
 
-<script type="text/javascript">
-<!--
-var banner = new Array();
+<script>
+<!-- 
+	var rota1imgs = new Array("https://www.patrose.de/wp-content/uploads/Patrose_Logo_schwarz_ueberarbeitetTransparent1zu1-1024x1024.png", "https://static-cdn.jtvnw.net/jtv_user_pictures/faa00795-817a-4338-ba07-4f7b9fd5007a-profile_image-300x300.png");
+	var rota1alt = new Array("", "");
+	var rotatorHtml = "";
+	var endJs = "";
 
-banner[0] = '<a href="https://www.patrose.de/wp-content/uploads/Patrose_Logo_schwarz_ueberarbeitetTransparent1zu1-1024x1024.png" align="bottom" width="300" height="300" border="0" alt=""></a>';
-banner[1] = '<a href="https://static-cdn.jtvnw.net/jtv_user_pictures/faa00795-817a-4338-ba07-4f7b9fd5007a-profile_image-300x300.png" align="bottom" width="300" height="300" border="0" alt=""></a>';
+	for(var img in rota1imgs){
+		var thisImg = new Image();
+		thisImg.src = rota1imgs[img];
+	}
+	var rota1imgCt = 2;
+	var rota1currentAd = 0;
+	var target = "";
+	var rota1banner = document.getElementById('rota1');
+	
+	function rota1cycle() {
+		var rotatorHtml = "";
+		var endJs = "";
+		if (rota1currentAd == rota1imgCt) {
+			rota1currentAd = 0;
+		}
 
-ausgabe = Math.round(Math.random()*(banner.length-1));
-document.write(banner[ausgabe]);
-//-->
+			rotatorHtml += '<img src="' + rota1imgs[rota1currentAd] + '" alt = "' + rota1alt[rota1currentAd] + '" id="rota1">' + endJs;
+	document.getElementById("rota1_div").innerHTML = rotatorHtml;	
+		rota1currentAd++;
+		window.setTimeout(rota1cycle,10000);
+	}
+	rota1cycle();
+// -->
 </script>
 
-</div>
-
-</body>
-</html>
+<!-- Banner rota -->
+<div id = "rota1_div"></div>
+<!-- End Banner rota -->
